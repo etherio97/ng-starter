@@ -1,6 +1,6 @@
-<mat-sidenav-container class="h-screen w-screen" autosize>
+<mat-sidenav-container class="w-screen h-screen" autosize>
   <mat-sidenav #drawer [opened]="opened" [mode]="mode">
-    <x-navigation></x-navigation>
+    <x-navigation [drawer]="drawer"></x-navigation>
   </mat-sidenav>
   <mat-sidenav-content class="bg-gray-100">
     <mat-toolbar class="flex items-center justify-between">

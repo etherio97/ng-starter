@@ -5,7 +5,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 import { NavigationComponent } from './navigation.component';
-import { NavigationService } from './navigation.service';
 
 @NgModule({
   declarations: [NavigationComponent],
@@ -17,7 +16,6 @@ import { NavigationService } from './navigation.service';
     MatButtonModule,
     RouterModule,
   ],
-  providers: [NavigationService],
   exports: [NavigationComponent],
 })
 export class NavigationModule {}

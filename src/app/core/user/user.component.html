@@ -1,20 +1,69 @@
-<button mat-icon-button [matMenuTriggerFor]="accountMenu">
-  <mat-icon svgIcon="mat_solid:account_circle"></mat-icon>
-</button>
-<mat-menu #accountMenu="matMenu">
-  <button mat-menu-item>
-    <div class="flex items-center">
-      <mat-icon class="icon-size-5" svgIcon="heroicons_solid:user"></mat-icon>
-      <span class="-m-2">Profile</span>
-    </div>
+<ng-container *ngIf="loggedIn; else login">
+  <button mat-icon-button [matMenuTriggerFor]="accountMenu" @zoomIn @zoomOut>
+    <mat-icon svgIcon="mat_solid:account_circle"></mat-icon>
   </button>
-  <button mat-menu-item>
-    <div class="flex items-center">
-      <mat-icon
-        class="icon-size-5"
-        svgIcon="heroicons_outline:logout"
-      ></mat-icon>
-      <span class="-m-2">Logout</span>
-    </div>
+  <mat-menu #accountMenu="matMenu">
+    <button mat-menu-item>
+      <div class="flex items-center">
+        <mat-icon class="icon-size-5" svgIcon="heroicons_solid:user"></mat-icon>
+        <span class="-m-2">Profile</span>
+      </div>
+    </button>
+    <button mat-menu-item (click)="signOut()">
+      <div class="flex items-center">
+        <mat-icon
+          class="icon-size-5"
+          svgIcon="heroicons_outline:logout"
+        ></mat-icon>
+        <span class="-m-2">Logout</span>
+      </div>
+    </button>
+  </mat-menu>
+</ng-container>
+
+<ng-template #login>
+  <button mat-icon-button (click)="openModal()" @zoomIn @zoomOut>
+    <mat-icon svgIcon="mat_solid:login"></mat-icon>
   </button>
-</mat-menu>
+</ng-template>
+
+<ng-template #modal>
+  <div class="flex items-center justify-center w-full h-full">
+    <form
+      class="w-[320px] -top-10 relative"
+      [formGroup]="formGroup"
+      (ngSubmit)="signIn()"
+    >
+      <h2 class="my-4 text-2xl font-medium tracking-wider">Log In</h2>
+
+      <div class="w-full">
+        <mat-form-field class="w-full" appearance="outline">
+          <mat-label>Email Address</mat-label>
+          <input type="email" matInput required formControlName="email" />
+        </mat-form-field>
+      </div>
+
+      <div class="w-full">
+        <mat-form-field class="w-full" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput required formControlName="password" />
+        </mat-form-field>
+      </div>
+
+      <div
+        @expandCollapse
+        *ngIf="error"
+        class="px-3 py-2.5 bg-rose-500 text-white rounded my-2 mb-4"
+      >
+        {{ error }}
+      </div>
+
+      <div class="space-y-4">
+        <button mat-raised-button color="primary" class="w-full">Log In</button>
+        <button mat-dialog-close mat-button class="w-full" #closeBtn>
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>

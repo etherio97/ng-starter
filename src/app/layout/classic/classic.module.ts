@@ -4,12 +4,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { NavigationModule } from '../../core/navigation/navigation.module';
-import { IconsModule } from 'src/app/core/icons/icons.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ClassicComponent } from './classic.component';
 import { BreakpointService } from 'src/app/core/services/breakpoint.service';
-import { UserModule } from 'src/app/core/user/user.module';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   declarations: [ClassicComponent],
@@ -19,9 +17,7 @@ import { UserModule } from 'src/app/core/user/user.module';
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-    UserModule,
-    NavigationModule,
-    IconsModule,
+    CoreModule,
     LayoutModule,
   ],
   providers: [BreakpointService],
