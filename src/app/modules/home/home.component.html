@@ -1,0 +1,34 @@
+<div class="p-6">
+  <mat-card class="overflow-hidden">
+    <mat-card-title @slideInLeft>Home</mat-card-title>
+    <mat-card-content>
+      <button
+        class="flex space-x-2 items-center space-y-2"
+        (click)="expanded = !expanded"
+      >
+        <span>Expand</span>
+        <mat-icon
+          [svgIcon]="
+            expanded
+              ? 'heroicons_outline:chevron-up'
+              : 'heroicons_outline:chevron-down'
+          "
+          class="icon-size-4"
+        ></mat-icon>
+      </button>
+      <div
+        @expandCollapse
+        *ngIf="expanded"
+        class="leading-loose tracking-wide py-3"
+      >
+        <hr />
+        <p class="py-2">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus
+          dolor quia natus id assumenda incidunt iure voluptate eius omnis, nisi
+          quo eligendi cupiditate sapiente harum ipsum, quidem error fugiat
+          impedit.
+        </p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,20 @@
+<button mat-icon-button [matMenuTriggerFor]="accountMenu">
+  <mat-icon svgIcon="mat_solid:account_circle"></mat-icon>
+</button>
+<mat-menu #accountMenu="matMenu">
+  <button mat-menu-item>
+    <div class="flex items-center">
+      <mat-icon class="icon-size-5" svgIcon="heroicons_solid:user"></mat-icon>
+      <span class="-m-2">Profile</span>
+    </div>
+  </button>
+  <button mat-menu-item>
+    <div class="flex items-center">
+      <mat-icon
+        class="icon-size-5"
+        svgIcon="heroicons_outline:logout"
+      ></mat-icon>
+      <span class="-m-2">Logout</span>
+    </div>
+  </button>
+</mat-menu>

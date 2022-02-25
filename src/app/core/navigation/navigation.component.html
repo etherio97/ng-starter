@@ -1,0 +1,23 @@
+<div class="bg-[#0f172a] h-screen w-[260px]">
+  <div class="flex items-center h-20 p-6 pb-0">
+    <a routerLink="/">
+      <img src="assets/images/logo.png" alt="Logo image" />
+    </a>
+  </div>
+  <mat-list class="mx-2.5 space-y-1.5">
+    <mat-list-item
+      *ngFor="let item of items"
+      [routerLink]="item.path"
+      class="cursor-pointer font-medium rounded-md hover:bg-white/20 overflow-hidden"
+      routerLinkActive="bg-white/20"
+      [routerLinkActiveOptions]="{ exact: item.title !== '/' }"
+    >
+      <button mat-icon-button class="text-white">
+        <mat-icon *ngIf="item.icon" [svgIcon]="item.icon"></mat-icon>
+      </button>
+      <span class="ml-2 text-white text-sm">
+        {{ item.title }}
+      </span>
+    </mat-list-item>
+  </mat-list>
+</div>

@@ -1,0 +1,14 @@
+<mat-sidenav-container class="h-screen w-screen" autosize>
+  <mat-sidenav #drawer [opened]="opened" [mode]="mode">
+    <x-navigation></x-navigation>
+  </mat-sidenav>
+  <mat-sidenav-content class="bg-gray-100">
+    <mat-toolbar class="flex items-center justify-between">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon svgIcon="heroicons_outline:menu"></mat-icon>
+      </button>
+      <x-user></x-user>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
